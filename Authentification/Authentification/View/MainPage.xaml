@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Authentification"
+             x:Class="Authentification.MainPage"
+           
+            >
+
+    <StackLayout Orientation="Vertical" BackgroundColor="White"  Spacing="15">
+        <StackLayout Orientation="Vertical" BackgroundColor="Black" HeightRequest="200"  >
+            <Label Text="Welcome" TextColor="White" FontAttributes="Italic" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,30,0,30"></Label>
+        </StackLayout>
+    <StackLayout Orientation="Vertical" Padding="20" Spacing="15">
+            <BoxView HeightRequest="10" />
+            <Frame BackgroundColor="White" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="5">
+                    <Image HorizontalOptions="Center" WidthRequest="220"  HeightRequest="200" Source="user.png" />
+                    
+                    <Label Text="Name:" TextColor="Black" FontAttributes="Bold" FontSize="20" ></Label>
+                    <Entry x:Name="Login" Text="{Binding Login}" Placeholder="Enter your Name ..." PlaceholderColor="Gray" TextColor="Black"  />
+                    <Label Text="ID:" TextColor="Black" FontAttributes="Bold" FontSize="20" ></Label>
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Enter your Id Name ..." PlaceholderColor="Gray" TextColor="Black" />
+                 
+                </StackLayout>
+            </Frame>
+            <Button Command="{Binding SubmitCommand}" Text="Sign Up" TextColor="White" FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand" BackgroundColor="Black" />
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>
