@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
 using Authentification.Model;
 using Authentification.View;
 using Xamarin.Forms;
 
 namespace Authentification.ViewModel
 {
-    public  class ContactViewModel : BaseViewModel
+    public class ContactViewModel : BaseViewModel
     {
 
 
 
         #region Fields
 
-        public INavigation navigation;
+        //public INavigation navigation;
 
         public Command<Object> _tapCommand;
 
@@ -38,15 +39,15 @@ namespace Authentification.ViewModel
 
 
 
-        public INavigation Navigation
+        //public INavigation Navigation
 
-        {
+        //{
 
-            get { return navigation; }
+        //    get { return navigation; }
 
-            set { navigation = value; }
+        //    set { navigation = value; }
 
-        }
+        //}
 
 
 
@@ -58,15 +59,40 @@ namespace Authentification.ViewModel
 
 
 
-        public ContactViewModel(INavigation _nav)
+        public ContactViewModel(INavigation nav)
 
         {
 
-            Navigation = _nav; ;
+            _nav = nav;
+            ;
 
             _tapCommand = new Command<Object>(OnTapped);
-            DependencyInject<View.Page1>.Get();
+
+            CurrentPage = DependencyInject<View.Page1>.Get();
             OpenPage();
+
+
+
+
+
+        }
+
+        public ContactViewModel(INavigation nav, ObservableCollection<Employee> ctv)
+
+        {
+
+            _nav = nav;
+
+            _tapCommand = new Command<Object>(OnTapped);
+            ContactList = ctv;
+            CurrentPage = DependencyInject<View.Page1>.Get();
+
+            OpenPage();
+
+
+
+
+
         }
 
 
@@ -75,11 +101,11 @@ namespace Authentification.ViewModel
 
 
 
-        #region OnTapped Method Implementation
+      
 
         public ContactViewModel()
         {
-                
+
         }
 
         public void OnTapped(Object o)
@@ -90,36 +116,32 @@ namespace Authentification.ViewModel
 
             nextPage.BindingContext = o;
 
-            Navigation.PushAsync(nextPage);
+            _nav.PushAsync(nextPage);
 
         }
 
 
+        public ICommand OnAddCommand => new Command(async () =>
+        {
 
-        #endregion
+            var page = DependencyService.Get<ViewModel.AddNewItem>() ?? new AddNewItem(_nav);
 
+        });
 
+        public ICommand OnUpCommand => new Command(async () =>
+        {
 
-        #region List of Names and Departments  
+            var page = DependencyService.Get<ViewModel.UpadateItemViewModel>() ?? new UpadateItemViewModel(_nav);
 
-
-
-     
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-
+        });
 
 
-        #endregion
+        //public ICommand SaveCommand => new Command(async () =>
+        //{
 
+        //    var page = DependencyService.Get<ViewModel.UpadateItemViewModel>() ?? new UpadateItemViewModel(_nav);
 
+        //});
 
     }
-
-
-
-
-
 }

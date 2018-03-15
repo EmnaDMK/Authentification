@@ -12,9 +12,9 @@ namespace Authentification
 	{
 		public MainPage()
 		{
-            var vm = new LoginViewModel(this.Navigation);
-            this.BindingContext = vm;
-            vm.DisplayInvalidLoginPrompt += () => DisplayAlert(vm.Title, vm._Message, "Okay");
+            //var vm = new LoginViewModel(this.Navigation);
+            //this.BindingContext = vm;
+            //vm.DisplayInvalidLoginPrompt += () => DisplayAlert(vm.Title, vm._Message, "Okay");
 		   
             InitializeComponent();
             

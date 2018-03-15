@@ -21,23 +21,66 @@ namespace Authentification
             //};
             //MainPage = new NavigationPage(new AddNewItem());
             //MainPage = new Authentification.MainPage();
-            //MainPage = new NavigationPage( new Page1());
-            //MainPage = new NavigationPage(new AddView());
+            //MainPage = new NavigationPage(new EmpManagement());
+            //MainPage = new NavigationPage(new LoginViewModel());
 
 
-		    //MainPage = new ProjectMvvm.MainPage();
 
-		    var model = DependencyInject<AddNewItem>.Get();
 
-		    model.CurrentPage = DependencyInject<AddView>.Get();
+            //var model = DependencyInject<AddNewItem>.Get();
 
-		    model.CurrentPage.BindingContext = model;
+            //model.CurrentPage = DependencyInject<AddView>.Get();
 
-		    var nav = new NavigationPage(model.CurrentPage);
+            //model.CurrentPage.BindingContext = model;
 
-		    model._nav = nav.Navigation;
+            //var nav = new NavigationPage(model.CurrentPage);
 
-		    MainPage = nav;
+            //model._nav = nav.Navigation;
+
+            //MainPage = nav;
+
+
+
+
+            //var model = DependencyInject<UpadateItemViewModel>.Get();
+
+            //model.CurrentPage = DependencyInject<EditView>.Get();
+
+            //model.CurrentPage.BindingContext = model;
+
+            //var nav = new NavigationPage(model.CurrentPage);
+
+            //model._nav = nav.Navigation;
+
+            //MainPage = nav;
+
+
+            //var model = DependencyInject<RemoveItemView>.Get();
+
+            //model.CurrentPage = DependencyInject<EditView>.Get();
+
+            //model.CurrentPage.BindingContext = model;
+
+            //var nav = new NavigationPage(model.CurrentPage);
+
+            //model._nav = nav.Navigation;
+
+            //MainPage = nav;
+
+
+            var model = DependencyInject<LoginViewModel>.Get();
+
+            model.CurrentPage = DependencyInject<MainPage>.Get();
+
+            model.CurrentPage.BindingContext = model;
+
+            var nav = new NavigationPage(model.CurrentPage);
+
+            model._nav = nav.Navigation;
+
+            MainPage = nav;
+
+
 
         }
 

@@ -13,7 +13,9 @@
                 <StackLayout Orientation="Horizontal" >
                     <StackLayout Orientation="Vertical" Padding="5,0,5,0" Spacing="2">
 
-                        <Image Source="BoutonAjouter.png"  WidthRequest="35" HeightRequest="35"  Margin="5"  ></Image>
+                        <Image Source="BoutonAjouter.png"  WidthRequest="35" HeightRequest="35"  Margin="5" >
+                         
+                        </Image>
                         <Image Source="BoutonUpdate.png" WidthRequest="35" HeightRequest="35"  Margin="5"  ></Image>
                         <Image Source="consulterUser.png" WidthRequest="35" HeightRequest="35"  Margin="5" ></Image>
 
@@ -23,15 +25,17 @@
 
                     <StackLayout Orientation="Vertical"  >
 
-
-                        <ListView x:Name="ListView1" SeparatorColor="Black"   >
+                        <Button Text="ADD" Clicked="Button_OnClicked"></Button>
+                        <Button Text="Update" Clicked="ButtonUp_OnClicked" ></Button>
+                        <Button Text="Delete" Clicked="ButtonDel_OnClicked"></Button>
+                        <!--<ListView x:Name="ListView1" SeparatorColor="Black"   >
                             <ListView.ItemTemplate >
                                 <DataTemplate>
                                     <TextCell Text="{Binding Items}" TextColor="Black" Height="100"  />
                                 </DataTemplate>
                             </ListView.ItemTemplate>
 
-                        </ListView>
+                        </ListView>-->
 
                     </StackLayout>
                 </StackLayout>

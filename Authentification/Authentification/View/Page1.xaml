@@ -4,6 +4,11 @@
             
              x:Class="Authentification.View.Page1">
     <StackLayout>
+        <StackLayout>
+            <Button Text="+" HorizontalOptions="End" WidthRequest="50" Command="{Binding OnAddCommand}"></Button>
+            <Button Text="Up" HorizontalOptions="End" WidthRequest="50" Command="{Binding OnUpCommand}"></Button>
+            <!--<Button Text="Delete" Clicked="ButtonDel_OnClicked"></Button>-->
+        </StackLayout>
 
         <StackLayout Orientation="Vertical"   Margin="10,10,10,0" VerticalOptions="FillAndExpand" >
 

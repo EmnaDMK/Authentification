@@ -1,28 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Authentification.View.AddView">
- 
-<StackLayout>
+             x:Class="Authentification.View.EditView">
+    <StackLayout>
         <StackLayout Spacing="20" Padding="15">
 
-            <Label Text="Name" FontSize="Small" />
+        <Label Text="Name" FontSize="Small" />
 
-            <Entry x:Name="Name" Text="{Binding Name}" FontSize="Small" />
+        <Entry x:Name="Name" Text="{Binding Name}" FontSize="Small" />
 
-            <Label Text="GSM" FontSize="Small" />
+        <Label Text="GSM" FontSize="Small" />
 
-            <Entry x:Name="GSM" Text="{Binding GSM}" FontSize="Small" Margin="0" />
+        <Entry x:Name="GSM" Text="{Binding GSM}" FontSize="Small" Margin="0" />
 
-            <Button Text="Save" Command="{Binding SaveCommand}"></Button>
-       
-        </StackLayout>
+        <Button Text="Update" Command="{Binding SaveCommand}"></Button>
+    </StackLayout>
+
 
 
 
     <StackLayout Orientation="Vertical"   Margin="10,10,10,0" VerticalOptions="FillAndExpand" >
 
-        <ListView  ItemsSource="{Binding ContactList}" HasUnevenRows="True"  VerticalOptions="FillAndExpand">
+            <ListView x:Name="list" ItemsSource="{Binding ContactList }" HasUnevenRows="True"  VerticalOptions="FillAndExpand">
 
             <ListView.ItemTemplate>
 
@@ -67,6 +66,5 @@
         </ListView>
 
     </StackLayout>
-</StackLayout>
-
+    </StackLayout>
 </ContentPage>

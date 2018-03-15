@@ -8,15 +8,20 @@ using Xamarin.Forms;
 
 namespace Authentification.ViewModel
 {
-    class LoginViewModel : INotifyPropertyChanged
+    class LoginViewModel : BaseViewModel
     {
-        public Action DisplayInvalidLoginPrompt;
-        //public Action DisplayValidLoginPrompt;
-        public string Title = "";
-        public string _Message = "";
-        public INavigation _Navigation;
+        #region Fields
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public Action DisplayPrompt;
+
+        #endregion
+
+        public string title { get; set; }
+
+        public string Message { get; set; }
+
+
+        //public event PropertyChangedEventHandler PropertyChanged;
         private String _login;
         private String _password;
 
@@ -27,7 +32,7 @@ namespace Authentification.ViewModel
             set
             {
                 _login = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Login"));
+                SetProperty(ref _login, value);
             }
         }
 
@@ -38,56 +43,55 @@ namespace Authentification.ViewModel
             get { return _password; }
             set
             {
-                _password = value; 
-                PropertyChanged(this, new PropertyChangedEventArgs("Password")); 
+                _password = value;
+                SetProperty(ref _password, value);
             }
         }
 
-        public INavigation Nav
+     
+        //public ICommand SubmitCommand
+        //{ protected set; get; }
+
+
+        public LoginViewModel(INavigation nav)
         {
-            get { return _Navigation; }
-            set
-            {
-                _Navigation = value;
-               
-            }
+            _nav = nav;
+            CurrentPage = DependencyInject<MainPage>.Get();
+          
+
+            OpenPage();
         }
 
-        public ICommand SubmitCommand
-        { protected set; get; }
-
-
-        public LoginViewModel(INavigation _nav)
+        public LoginViewModel()
         {
-            Nav = _nav;
-            SubmitCommand = new Command(Submit);
-        } 
-      
+           
+        }
 
 
 
 
-        public void Submit()
+
+        public ICommand SubmitCommand => new Command(async () =>
         {
             if (_login != "emna" || _password != "admin")
             {
                 Title = "Failed Authentification !";
-                _Message = "Login not correct, empty user name or password";
+                Message = "Login not correct, empty user name or password";
                 DisplayInvalidLoginPrompt();
             }
             else
             {
                 //Title = "Authentification Successful !";
-                //_Message = "Welcome, This could be your Dashboard";
+                //Message = "Welcome, This could be your Dashboard";
                 //DisplayInvalidLoginPrompt();
 
-                Nav.PushAsync(new MasterEmp());
+                //Nav.PushAsync(new MasterEmp());
 
 
             }
 
-      
-       
-        }
+            var page1 = DependencyService.Get<ContactViewModel>() ?? (new ContactViewModel(_nav));
+
+        });
     }
 }

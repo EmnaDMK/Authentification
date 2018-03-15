@@ -24,9 +24,9 @@ namespace Authentification.ViewModel
 
         };
 
-        public ObservableCollection<Employee> ContactList { get; set; }
+        public ObservableCollection<Employee> ContactList { get; set; } 
         public INavigation _nav;
-
+        public Action DisplayInvalidLoginPrompt;
         public ContentPage CurrentPage { get; set; }
 
         public BaseViewModel()
@@ -50,7 +50,31 @@ namespace Authentification.ViewModel
             }
         }
 
+        public ObservableCollection<Employee> EmployeeList
 
+        {
+
+            get
+
+            {
+
+
+
+                return ContactList ?? (ContactList = new ObservableCollection<Employee>());
+
+            }
+
+            set
+
+            {
+
+                ContactList = value;
+
+                OnPropertyChanged("EmployeeList");
+
+            }
+
+        }
 
         public void OpenPage()
 
@@ -146,6 +170,31 @@ namespace Authentification.ViewModel
 
         #endregion
 
+
+
+
+        public ObservableCollection<Employee> Contacts
+
+        {
+
+            get
+
+            {
+  return ContactList ?? (ContactList = new ObservableCollection<Employee>());
+
+            }
+
+            set
+
+            {
+
+                ContactList = value;
+
+                OnPropertyChanged("Contacts");
+
+            }
+
+        }
     }
 
 }

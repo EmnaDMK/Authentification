@@ -14,7 +14,7 @@
             <BoxView HeightRequest="10" />
             <Frame BackgroundColor="White" HasShadow="False">
                 <StackLayout Orientation="Vertical" Spacing="5">
-                    <Image HorizontalOptions="Center" WidthRequest="220"  HeightRequest="200" Source="user.png" />
+                    <Image HorizontalOptions="Center" WidthRequest="150"  HeightRequest="150" Source="user.png" />
                     
                     <Label Text="Name:" TextColor="Black" FontAttributes="Bold" FontSize="20" ></Label>
                     <Entry x:Name="Login" Text="{Binding Login}" Placeholder="Enter your Name ..." PlaceholderColor="Gray" TextColor="Black"  />

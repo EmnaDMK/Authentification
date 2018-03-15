@@ -10,13 +10,31 @@ using Xamarin.Forms.Xaml;
 
 namespace Authentification.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MasterEmp : MasterDetailPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MasterEmp : MasterDetailPage
     {
-		public MasterEmp ()
-		{
-			InitializeComponent ();
-		   
+        public MasterEmp()
+        {
+            InitializeComponent();
+
         }
-	}
+
+        private void Button_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddView());
+
+        }
+
+        private void ButtonUp_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EditView());
+
+        }
+
+        private void ButtonDel_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EditView());
+
+        }
+    }
 }

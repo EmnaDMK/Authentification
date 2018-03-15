@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Authentification.View.EmpManagement">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="ADD" Clicked="Button_OnClicked"></Button>
+            <Button Text="Update" Clicked="ButtonUp_OnClicked" ></Button>
+            <Button Text="Delete" Clicked="ButtonDel_OnClicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
