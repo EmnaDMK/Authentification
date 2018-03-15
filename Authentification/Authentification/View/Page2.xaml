@@ -10,7 +10,7 @@
                     <Entry Text="{Binding Name}"></Entry>
                     <Entry Text="{Binding GSM}"></Entry>
                     <Button Text="Update" Command="{Binding SaveCommandUp}"></Button>
-                    <Button Text="Delete" Command="{Binding DeleteCommand}"></Button>
+                    <!--<Button Text="Delete" Command="{Binding DeleteCommand}"></Button>-->
             </StackLayout>
             </StackLayout>
         </StackLayout>

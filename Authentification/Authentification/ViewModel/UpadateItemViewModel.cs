@@ -109,6 +109,7 @@ namespace Authentification.ViewModel
 
             }
 
+          await  _nav.PopAsync();
             var page = DependencyService.Get<ViewModel.ContactViewModel>() ?? new ContactViewModel(_nav, ContactList);
         });
 
@@ -127,43 +128,43 @@ namespace Authentification.ViewModel
         }
 
 
-        public ICommand DeleteCommand => new Command(async () =>
+        //    public ICommand DeleteCommand => new Command(async () =>
 
-        {
-               foreach (Employee emp in ContactList)
+        //    {
+        //           foreach (Employee emp in ContactList)
 
-        {
-
-
-            if (emp._name.Equals(name))
-            {
-                ContactList.Remove(emp);
-            }
-
-                //foreach (Employee emp in ContactList)
-
-                //{
+        //    {
 
 
-                //    if (emp._name.Equals(name))
-                //    {
+        //        if (emp._name.Equals(name))
+        //        {
+        //            ContactList.Remove(emp);
+        //        }
+
+        //            //foreach (Employee emp in ContactList)
+
+        //            //{
 
 
-                //        nnn = ContactList.Count;
-
-                //        ContactList.Remove(emp);
-                //        nnn = ContactList.Count;
+        //            //    if (emp._name.Equals(name))
+        //            //    {
 
 
+        //            //        nnn = ContactList.Count;
 
-                //    }
+        //            //        ContactList.Remove(emp);
+        //            //        nnn = ContactList.Count;
 
-                //    Contacts = ContactList;
 
 
-            }
+        //            //    }
 
-            var page = DependencyService.Get<ViewModel.ContactViewModel>() ?? new ContactViewModel(_nav, Contacts);
-        });
+        //            //    Contacts = ContactList;
+
+
+        //        }
+
+        //        var page = DependencyService.Get<ViewModel.ContactViewModel>() ?? new ContactViewModel(_nav, Contacts);
+        //    });
     }
 }

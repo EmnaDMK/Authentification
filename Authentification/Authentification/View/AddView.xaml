@@ -6,15 +6,15 @@
 <StackLayout>
         <StackLayout Spacing="20" Padding="15">
 
-            <Label Text="Name" FontSize="Small" />
+            <Label Text="Name" FontSize="Small" TextColor="Black"/>
 
-            <Entry x:Name="Name" Text="{Binding Name}" FontSize="Small" />
+            <Entry x:Name="Name" Text="{Binding Name}" FontSize="Small"  />
 
-            <Label Text="GSM" FontSize="Small" />
+            <Label Text="GSM" FontSize="Small" TextColor="Black"/>
 
-            <Entry x:Name="GSM" Text="{Binding GSM}" FontSize="Small" Margin="0" />
+            <Entry x:Name="GSM" Text="{Binding GSM}" FontSize="Small" Margin="0"  />
 
-            <Button Text="Save" Command="{Binding SaveCommand}"></Button>
+            <Button Text="Save" Command="{Binding SaveCommand}" BorderColor="Black"></Button>
        
         </StackLayout>
 

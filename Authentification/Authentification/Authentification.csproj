@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\image2.png" />
     <EmbeddedResource Include="Images\image0.png" />
+    <EmbeddedResource Include="Images\image2.png" />
     <EmbeddedResource Include="Images\image1.png" />
   </ItemGroup>
 

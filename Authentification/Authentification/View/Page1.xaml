@@ -5,8 +5,8 @@
              x:Class="Authentification.View.Page1">
     <StackLayout>
         <StackLayout>
-            <Button Text="+" HorizontalOptions="End" WidthRequest="50" Command="{Binding OnAddCommand}"></Button>
-            <Button Text="Up" HorizontalOptions="End" WidthRequest="50" Command="{Binding OnUpCommand}"></Button>
+            <Button Text="+" HorizontalOptions="End" WidthRequest="50" Command="{Binding OnAddCommand}" ></Button>
+            <!--<Button Text="Up" HorizontalOptions="End" WidthRequest="50" Command="{Binding OnUpCommand}"></Button>-->
             <!--<Button Text="Delete" Clicked="ButtonDel_OnClicked"></Button>-->
         </StackLayout>
 
@@ -51,8 +51,16 @@
                                             </Image.GestureRecognizers>
 
                                         </Image>
+                                        
+                                        <Image Source="close.png" HorizontalOptions="EndAndExpand" WidthRequest="30">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveCommand, Source = {x:Reference list}}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
 
-                                    </StackLayout>
+
+
+</StackLayout>
 
                                 </StackLayout>
 

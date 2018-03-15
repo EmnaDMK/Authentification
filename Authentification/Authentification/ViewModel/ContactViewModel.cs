@@ -20,6 +20,7 @@ namespace Authentification.ViewModel
         //public INavigation navigation;
 
         public Command<Object> _tapCommand;
+        public Command<Object> _RemoveCommand;
 
         #endregion
 
@@ -37,6 +38,15 @@ namespace Authentification.ViewModel
 
         }
 
+        public Command<Object> RemoveCommand
+
+        {
+
+            get { return _RemoveCommand; }
+
+            set { _RemoveCommand = value; }
+
+        }
 
 
         //public INavigation Navigation
@@ -68,6 +78,7 @@ namespace Authentification.ViewModel
 
             _tapCommand = new Command<Object>(OnTapped);
 
+            _RemoveCommand = new Command<Object>(OnRemove);
             CurrentPage = DependencyInject<View.Page1>.Get();
             OpenPage();
 
@@ -84,6 +95,7 @@ namespace Authentification.ViewModel
             _nav = nav;
 
             _tapCommand = new Command<Object>(OnTapped);
+            _RemoveCommand = new Command<Object>(OnRemove);
             ContactList = ctv;
             CurrentPage = DependencyInject<View.Page1>.Get();
 
@@ -118,6 +130,15 @@ namespace Authentification.ViewModel
 
             _nav.PushAsync(nextPage);
 
+        }
+
+        public void OnRemove(Object o)
+        {
+            if (o != null)
+            {
+                var employee = o as Employee;
+                ContactList.Remove(employee);
+            }
         }
 
 
